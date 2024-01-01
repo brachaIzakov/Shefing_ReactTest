@@ -41,28 +41,29 @@ function UserTable() {
           onChange={(e) => setFilter(e.target.value)}
         />
         {
-          users.length>0 ? 
-          <table className='table'>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Company Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredUsers.map((user) => (
-                <tr className='tablehover' key={user.id} onClick={() => { setuserId(user.id); setuserName(user.name); }}>
-                  <td >{user.name}</td>
-                  <td >{user.email}</td>
-                  <td >{user.company.name}</td>
+          users.length > 0 ?
+            <table className='table'>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Company Name</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          :
-          <div className="loader">
-            <h4>Loading data...</h4>
+              </thead>
+              <tbody>
+                {filteredUsers.map((user) => (
+                  <tr className='tablehover' key={user.id} onClick={() => { setuserId(user.id); setuserName(user.name); }}>
+                    <td >{user.name}</td>
+                    <td >{user.email}</td>
+                    <td >{user.company.name}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            :
+            <div className="loader-container">
+              <div className="loader"></div>
+              <h4>Loading data...</h4>
             </div>
         }
       </div>

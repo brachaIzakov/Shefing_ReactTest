@@ -1,31 +1,45 @@
 .container{
   display: flex;
-  flex-wrap: wrap;
-  margin: 4% 5% ;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 4% 8% ;
+}
+.search-button, .posts {
+  flex-basis: 50%; /* כל אלמנט יתפוס 50% מהרוחב במסך מחשב */
+  margin: 10px;
+}
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .search-button, .posts {
+    flex: none; /* יתפוס את כל הרוחב */
+    width: 100%;
+  }
 }
 .tablehover{
   cursor: pointer; /* שינוי הסמן */
 }
 .tablehover:hover{
-  color: #1976d2;
+  color: #3498db;
+  
 }
 .table{
-  flex: 1;
   margin-top: 2%;
-  height: 80%;
-  /*width: 90%;*/
+  height: 230px;
   border-collapse: separate;
   border-spacing: 12px; /* הרווח בין התאים */
-  border: 2px solid #1976d2;; /* עובי הגבול */
+  border: 1px solid #3498db;; /* עובי הגבול */
   border-radius: 10px; /* התעגלות על גבולות הטבלה */
 }
 .search-button {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 .posts{
-  margin:5%;
+  margin:10% 5%;
+  height: 370px;
 }
 .inputText{
   width: 55%;
@@ -40,6 +54,7 @@
   animation: spin 2s linear infinite;
   margin: 75%;
 }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -47,4 +62,21 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.success{
+  background-color: rgb(62, 169, 83);
+  
+}
+.loader-container{
+  display: flex;
+  flex-direction: column;
+  margin: 50%;
+}
+.all-post{
+  max-height: 250px; /* או כל גובה אחר שתרצה */
+  overflow: auto; 
+}
+.createpost{
+  margin: 43px;
 }

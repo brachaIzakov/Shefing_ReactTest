@@ -17,10 +17,10 @@ function NewPost(props) {
       const newPost = {
         "userId": props.userId,
         "id": props.posts.length,
-        "title": title,
+        "title": 'new! ' + title,
         "body": body
       };
-      props.setPosts([...props.posts, newPost])
+      props.setPosts([newPost,...props.posts])
       setisSnackbarOpen(true)
       setOpen(false);
     }
@@ -32,8 +32,8 @@ function NewPost(props) {
   };
 
   return (
-    <div>
-      <Button variant="outlined" onClick={handleOpen}>
+    <div className='createpost'>
+      <Button  variant="outlined" onClick={handleOpen}>
         Create Post
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -61,9 +61,9 @@ function NewPost(props) {
       </Dialog>
       <Snackbar
             open={isSnackbarOpen}
-            autoHideDuration={3000} // המשך הצגת הודעה במילי-שניות (במקרה זה 3 שניות)
+            autoHideDuration={7000} // המשך הצגת הודעה במילי-שניות (במקרה זה 3 שניות)
             onClose={()=>{setisSnackbarOpen(false)}}
-            message="Post added successfully!" // הודעה שתוצג
+            message="Post added successfully! You can see it at the end of the list of posts" // הודעה שתוצג
           />
     </div>
   );
